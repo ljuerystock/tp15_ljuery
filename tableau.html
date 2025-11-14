@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau 3</title>
+    <script src="button.js"></script>
+</head>
+<body>
+    <h2>Tableau Dynamique</h2>
+
+    Nom: <br>
+    <input type="text" placeholder="Nom" name="nom" id="nom"> <br>
+    Prénom <br>
+    <input type="text" placeholder="Prénom" name="prenom" id="prenom"> <br>
+    Âge: <br>
+    <input type="text" placeholder="Age" name="age" id="age"> <br>
+    <br><br>
+
+    <table id="myTable">
+        <tr>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Age</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Miles</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Jane</td>
+            <td>Porter</td>
+            <td>25</td>
+        </tr>
+    </table> 
+
+    <button onclick="addLine()">Ajouter une ligne</button>
+
+    <script>
+        function addLine(){
+            var name = document.getElementById("nom").value;
+            var prenom = document.getElementById("prenom").value;
+            var age = document.getElementById("age").value;
+
+
+
+            if(name == "" || age == "" || prenom == "" ){
+                alert("un des trois éléments n'est pas complet ou valide");
+            }
+            else if (age < 10 || age > 20){
+                alert("L'âge n'est pas valide");
+            }
+            else {
+                var table = document.getElementById("myTable");
+                var newRow = table.insertRow(-1);
+
+                var cell1 = newRow.insertCell(0); 
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+                cell1.innerHTML = name;
+                cell2.innerHTML = prenom;
+                cell3.innerHTML = age;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
